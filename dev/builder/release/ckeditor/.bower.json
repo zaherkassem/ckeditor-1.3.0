@@ -1,0 +1,14 @@
+{
+  "name": "ckeditor",
+  "homepage": "https://github.com/wix/ck-editor",
+  "version": "1.192.0",
+  "_release": "1.192.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.192.0",
+    "commit": "aeebf258b210923d5c0fbe518fb8a786e41de4e0"
+  },
+  "_source": "git@github.com:wix/ck-editor.git",
+  "_target": "1.192.0",
+  "_originalSource": "git@github.com:wix/ck-editor.git"
+}
