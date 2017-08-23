@@ -1,0 +1,35 @@
+{
+  "name": "ck-editor",
+  "version": "0.0.1",
+  "description": "Wix HTML CK-Editor",
+  "devDependencies": {
+    "grunt": ">=0.4",
+    "grunt-aggregator": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-compress": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-cssmin":"*",
+    "alias": "*",
+    "benderjs-jquery": "~0.2.0",
+    "benderjs-yui": "~0.2.0",
+    "jscs": "^1.6.0",
+    "jshint": "^2.5.2",
+    "grunt-contrib-imagemin": "^0.8.1"      
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.wixpress.com:wix-html-client/ck-editor.git"
+  },
+  "keywords": [
+    "HTML",
+    "Wix",
+    "bootstrap",
+    "javascript"
+  ],
+  "license": "Commercial"
+}

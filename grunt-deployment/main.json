@@ -1,0 +1,37 @@
+[
+    {
+        "id":"ckEditorMain#new",
+        "sourceDir":"./",
+        "package":"",
+        "targetDir":"",
+        "atPhase":"PHASES.POST_DEPLOY",
+        "tags":["editor"],
+        "lint":false,
+        "min": false,
+        "include":[
+            "ckeditor.js"
+        ],
+        "exclude":[
+
+        ]
+    },
+    {
+        "id":"ckEditorDir#newTemp",
+        "sourceDir":"dev/builder/release/ckeditor",
+        "package":"",
+        "targetDir":"",
+        "atPhase":"PHASES.POST_DEPLOY",
+        "tags":["editor"],
+        "lint":false,
+        "min": false,
+        "excludeFromManifest": true,
+        "include":[
+            "**/*"
+        ],
+        "exclude":[
+            "**/~*",
+            "**/_*",
+            "**/_*/**/*"
+        ]
+    }
+]

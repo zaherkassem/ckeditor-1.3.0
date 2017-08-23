@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.html or http://ckeditor.com/license
+-->
+<html>
+<head>
+    <title>AutoGrow Plugin &mdash; CKEditor Sample</title>
+    <meta charset="utf-8">
+    <script src="mootools.js"></script>
+    <!--<script src="../dev/builder/release/ckeditor/ckeditor.js"></script>-->
+    <script src="../ckeditor.js"></script>
+    <script src="myToolbar.js"></script>
+    <!--<script src="cleaner.js"></script>-->
+</head>
+<body>
+
+<div id="toolbar">
+    <button onclick="toolbar.executeSimpleCommand('bold')" id="bold">B</button>
+    <button onclick="toolbar.executeSimpleCommand('italic')" id="italic">I</button>
+    <button onclick="toolbar.executeSimpleCommand('underline')" id="underline">U</button>
+    <button onclick="toolbar.executeSimpleCommand('removeFormat')" id="removeFormat">removeFormat</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="toolbar.executeSimpleCommand('numberedlist')" id="numberedlist">numbered list</button>
+    <button onclick="toolbar.executeSimpleCommand('bulletedlist')" id="bulletedlist">bulleted list</button>
+    &nbsp;
+    <button onclick="toolbar.executeSimpleCommand('indent')" id="indent">indent</button>
+    <button onclick="toolbar.executeSimpleCommand('outdent')" id="outdent">outdent</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="toolbar.executeSimpleCommand('justifyleft')" id="justifyleft">left</button>
+    <button onclick="toolbar.executeSimpleCommand('justifycenter')" id="justifycenter">center</button>
+    <button onclick="toolbar.executeSimpleCommand('justifyright')" id="justifyright">right</button>
+    <button onclick="toolbar.executeSimpleCommand('justifyblock')" id="justifyblock">justify</button>
+    &nbsp;
+    <button onclick="toolbar.executeSimpleCommand('bidiltr')" id="bidiltr">ltr</button>
+    <button onclick="toolbar.executeSimpleCommand('bidirtl')" id="bidirtl">rtl</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="toolbar.executeSimpleCommand('wixLink')" id="wixLink">link</button>
+    <button onclick="toolbar.executeSimpleCommand('unlink')" id="unlink">unlink</button>
+    &nbsp;&nbsp;&nbsp;
+    <button onclick="toolbar.executeSimpleCommand('source')" id="source">source</button>
+    <br/>
+    <br/>
+    <label for="formatBlock">styles: </label>
+    <select onchange="toolbar.executeStyleCommand('formatBlock', this.value)" id="formatBlock">
+        <option value="h1">Page Title</option>
+        <option value="h2">heading XL</option>
+        <option value="h3">heading L</option>
+        <option value="h4">heading M</option>
+        <option value="h5">heading S</option>
+        <option value="h6">body L</option>
+        <option value="address">body M</option>
+        <option value="p">body S</option>
+        <option value="div">body XS</option>
+    </select>
+
+    <label for="foreColor">text color: </label>
+    <select onchange="toolbar.executeStyleCommand('foreColor', this.value)" id="foreColor">
+        <option value="0" selected="true">none</option>
+        <option value="#ff0000">ff0000</option>
+        <option value="#00ff00">00ff00</option>
+        <option value="#0000ff">0000ff</option>
+    </select>
+
+    <label for="backColor">bg color: </label>
+    <select onchange="toolbar.executeStyleCommand('backColor', this.value)" id="backColor">
+        <option value="0" selected="true">none</option>
+        <option value="#ff0000">ff0000</option>
+        <option value="#00ff00">00ff00</option>
+        <option value="#0000ff">0000ff</option>
+    </select>
+
+    <label for="fontSize">font size: </label>
+    <select onchange="toolbar.executeStyleCommand('fontSize', this.value)" id="fontSize">
+        <option value="0" selected="true">none</option>
+        <option value="30px">30px</option>
+        <option value="50px">50px</option>
+        <option value="70px">70px</option>
+    </select>
+
+    <label for="lineHeight">line height: </label>
+    <select onchange="toolbar.executeStyleCommand('lineHeight', this.value)" id="lineHeight">
+        <option value="0" selected="true">none</option>
+        <option value="1em">1em</option>
+        <option value="2em">2em</option>
+        <option value="3em">3em</option>
+    </select>
+
+    <label for="letterSpacing">kerning</label>
+    <select onchange="toolbar.executeStyleCommand('letterSpacing', this.value)" id="letterSpacing">
+        <option value="0" selected="true">none</option>
+        <option value="0.2em">0.2em</option>
+        <option value="0.4em">0.4em</option>
+        <option value="0.6em">0.6em</option>
+    </select>
+
+
+</div>
+
+
+<textarea cols="80" id="editor1" name="editor1" rows="10">&lt;p&gt;This is some &lt;strong&gt;sample text&lt;/strong&gt;. You are using &lt;a href="http://ckeditor.com/"&gt;CKEditor&lt;/a&gt;.&lt;/div&gt;</textarea>
+
+<input type="button" value="data" onclick="getData()"/>
+
+
+<script>
+    function getData() {
+        var data = CKEDITOR.instances.editor1.getData();
+        alert(data);
+    }
+
+    function init() {
+        if (CKEDITOR.status !== "loaded") {
+            setTimeout(init, 50);
+            return;
+        }
+
+        toolbar = new Toolbar('editor1');
+
+        var editor = CKEDITOR.replace('editor1', {
+            customConfig: 'my/myConfig.js'
+
+            //extraPlugins: 'autogrow',
+            //removePlugins: 'resize'
+        });
+        var set = false;
+        editor.on("dataReady", function (evtData) {
+            if (!set) {
+                editor.setData("<p class='style_1'>this is a <span class='color1'>test this is</span> a test this is a test</p>" +
+                        "<p class='style_2 color1'>this is a <strong>test this</strong> is a test</p>");
+                set = true;
+            }
+        });
+    }
+
+    init();
+
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+.cke_editable ol, .cke_editable ul{
+    padding-left: 1.3em;
+    margin-left: 0.5em;
+}
+.cke_editable ol[dir="rtl"], .cke_editable ul[dir="rtl"]{
+    padding-right: 1.3em;
+    margin-right: 0.5em;
+}
+body > h1,body > h2,body > h3,body > h4,body > h5,body > h6,body > p,body > address,body > div {
+    /*overflow: visible;*/
+    max-width: none !important;
+}
